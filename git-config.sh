@@ -10,5 +10,3 @@ sudo -H -u www-data bash -c "git fetch --all "
 sudo -H -u www-data bash -c "git reset --hard origin/$GITBRANCH"
 sudo -H -u www-data bash -c "git checkout $GITBRANCH -f"
 sudo -H -u www-data bash -c "git pull origin $GITBRANCH -f"
-rm -r /vendor
-composer install

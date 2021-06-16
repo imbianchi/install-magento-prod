@@ -33,6 +33,10 @@ export DBHOST
 bash ./nginx-config.sh
 bash ./create-project.sh
 bash ./git-config.sh
+
+sudo -H -u www-data bash -c "rm -r /var/www/html/$STORENAME/vendor"
+sudo -H -u www-data bash -c "composer install"
+
 bash ./store-config.sh
 
 ADMINURL=$(cat /var/www/html/$STORENAME/app/etc/env.php | grep admin | awk '{print $3}' | sed "s/'//g" | awk '{print "https://'$STORENAME'.bisws.com.br/"$0}')
