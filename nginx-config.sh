@@ -2,7 +2,7 @@
 
 request_uri='$request_uri'
 host='$host'
-http_x_forwarded_proto='http_x_forwarded_proto'
+http_x_forwarded_proto='$http_x_forwarded_proto'
 
 # create the respective directory
 cd /etc/nginx/conf.d/
