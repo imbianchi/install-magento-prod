@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+request_uri='$request_uri'
+host='$host'
+http_x_forwarded_proto='http_x_forwarded_proto'
+
 # create the respective directory
 cd /etc/nginx/conf.d/
 touch ./$STORENAME.conf &&
@@ -19,8 +23,8 @@ echo "server {
         set $MAGE_ROOT /var/www/html/$STORENAME;
         
       #redirect to HTTPS behind ELB
-       if (${'$http_x_forwarded_proto'} != 'https') {
-         return 301 https://${'$host$request_uri'};
+       if ($http_x_forwarded_proto != 'https') {
+         return 301 https://$host$request_uri;
       }
 
         access_log /var/log/nginx/$STORENAME-access.log;
