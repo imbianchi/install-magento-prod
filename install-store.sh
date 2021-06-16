@@ -24,10 +24,11 @@ read DBHOST
 
 export STORENAME
 export STOREURL
+export GITREPO
+export GITBRANCH
 export DBPSWD
 export ADMINPSWD
 export DBHOST
-export GITBRANCH
 
 bash ./nginx-config.sh
 bash ./create-project.sh
