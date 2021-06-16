@@ -35,6 +35,7 @@ bash ./create-project.sh
 bash ./git-config.sh
 
 sudo -H -u www-data bash -c "rm -r /var/www/html/$STORENAME/vendor"
+cd /var/www/html/$STORENAME
 sudo -H -u www-data bash -c "composer install"
 
 bash ./store-config.sh
