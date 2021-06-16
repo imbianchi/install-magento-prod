@@ -28,7 +28,7 @@ php bin/magento setup:install \
         --page-cache-redis-server=localhost \
         --page-cache-redis-db=2 \
         --cleanup-database
-        
+
 echo "Running bistwobis configs..."
 php bin/magento config:set admin/dashboard/enable_charts 1 &&
 php bin/magento config:set admin/security/lockout_failures '0' &&
@@ -62,8 +62,6 @@ php bin/magento config:set oauth/access_token_lifetime/customer '' &&
 php bin/magento config:set oauth/access_token_lifetime/admin '' &&
 php bin/magento config:set oauth/consumer/expiration_period 31536000 &&
 php bin/magento config:set sales_email/general/async_sending 1 &&
-php bin/magento config:set sitemap/generate/enabled 1 &&
-php bin/magento config:set sitemap/generate/frequency D &&
 php bin/magento config:set shipping/origin/country_id BR &&
 php bin/magento config:set shipping/origin/region_id 499 &&
 php bin/magento config:set shipping/origin/postcode 86050-435 &&
