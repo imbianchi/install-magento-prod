@@ -4,29 +4,31 @@
 cd /var/www/html/$STORENAME
 echo "Running admin configs..."
 php bin/magento setup:install \
-          --base-url=https://$STOREURL/ \
-          --db-host=$DBHOST \
-          --db-name=$STORENAME \
-          --db-user=$STORENAME \
-          --db-password=$DBPSWD \
-          --admin-firstname=admin \
-          --admin-lastname=admin \
-          --admin-email=admin@admin.com \
-          --admin-user=admin \
-          --admin-password=$ADMINPSWD \
-          --backend-frontname=admin \
-          --use-rewrites=1 \
-          --elasticsearch-host=localhost \
-          --elasticsearch-port=9200 \
-          --session-save-redis-port=6379 \
-          --session-save-redis-host=localhost \
-          --session-save-redis-db=1 \
-          --cache-backend-redis-port=6379 \
-          --cache-backend-redis-server=localhost \
-          --cache-backend-redis-db=0 \
-          --page-cache-redis-port=6379 \
-          --page-cache-redis-server=localhost \
-          --page-cache-redis-db=2
+        --base-url=https://$STOREURL/ \
+        --db-host=$DBHOST \
+        --db-name=$STORENAME \
+        --db-user=$STORENAME \
+        --db-password=$DBPSWD \
+        --admin-firstname=admin \
+        --admin-lastname=admin \
+        --admin-email=admin@admin.com \
+        --admin-user=admin \
+        --admin-password=$ADMINPSWD \
+        --backend-frontname=admin \
+        --use-rewrites=1 \
+        --elasticsearch-host=localhost \
+        --elasticsearch-port=9200 \
+        --session-save-redis-port=6379 \
+        --session-save-redis-host=localhost \
+        --session-save-redis-db=1 \
+        --cache-backend-redis-port=6379 \
+        --cache-backend-redis-server=localhost \
+        --cache-backend-redis-db=0 \
+        --page-cache-redis-port=6379 \
+        --page-cache-redis-server=localhost \
+        --page-cache-redis-db=2 \
+        --cleanup-database
+        
 echo "Running bistwobis configs..."
 php bin/magento config:set admin/dashboard/enable_charts 1 &&
 php bin/magento config:set admin/security/lockout_failures '0' &&
@@ -61,7 +63,6 @@ php bin/magento config:set oauth/access_token_lifetime/admin '' &&
 php bin/magento config:set oauth/consumer/expiration_period 31536000 &&
 php bin/magento config:set sales_email/general/async_sending 1 &&
 php bin/magento config:set sitemap/generate/enabled 1 &&
-php bin/magento config:set sitemap/generate/time '02,00,00' &&
 php bin/magento config:set sitemap/generate/frequency D &&
 php bin/magento config:set shipping/origin/country_id BR &&
 php bin/magento config:set shipping/origin/region_id 499 &&
@@ -75,7 +76,6 @@ php bin/magento config:set system/upload_configuration/max_height 1080 &&
 php bin/magento config:set web/seo/use_rewrites 1 &&
 php bin/magento config:set web/secure/use_in_frontend 1 &&
 php bin/magento config:set web/secure/use_in_adminhtml 1
---cleanup-database
 
 php bin/magento config:set dev/static/sign 0
 php bin/magento setup:static-content:deploy -f
