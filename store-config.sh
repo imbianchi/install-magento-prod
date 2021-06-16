@@ -27,12 +27,8 @@ php bin/magento setup:install \
           --page-cache-redis-port=6379 \
           --page-cache-redis-server=localhost \
           --page-cache-redis-db=2
-
-echo "Done."
 echo "Running bistwobis configs..."
-echo "running config bistwobis script..."
 php bin/magento config:set \
-          --admin/dashboard/enable_charts 1 \
           --admin/security/admin_account_sharing 1 \
           --admin/security/lockout_failures '0' \
           --admin/security/lockout_threshold '' \
@@ -89,7 +85,7 @@ php bin/magento cache:flush
 php bin/magento cache:clean
 php bin/magento mo:di Magento_TwoFactorAuth
 chown -R www-data:www-data /var/www/html/$STORENAME
-php bin/magento setup:store-config:set --base-url="http://$STORENAME/"
-php bin/magento setup:store-config:set --base-url-secure="https://$STORENAME/"
+php bin/magento setup:store-config:set --base-url="http://$STOREURL/"
+php bin/magento setup:store-config:set --base-url-secure="https://$STOREURL/"
 php bin/magento setup:upgrade
 php bin/magento setup:di:compile
