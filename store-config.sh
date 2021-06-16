@@ -29,7 +29,6 @@ php bin/magento setup:install \
           --page-cache-redis-db=2
 echo "Running bistwobis configs..."
 php bin/magento config:set admin/dashboard/enable_charts 1 &&
-php bin/magento config:set --admin/security/admin_account_sharing 1 &&
 php bin/magento config:set --admin/security/lockout_failures '0' &&
 php bin/magento config:set --admin/security/lockout_threshold '' &&
 php bin/magento config:set --admin/security/password_is_forced 0 &&
@@ -37,7 +36,6 @@ php bin/magento config:set --admin/security/password_lifetime '' &&
 php bin/magento config:set --admin/security/session_lifetime 31536000 &&
 php bin/magento config:set --admin/security/use_form_key 0 &&
 php bin/magento config:set --cataloginventory/options/show_out_of_stock 1
-php bin/magento config:set --customer/password/lockout_threshold 0 &&
 php bin/magento config:set --customer/password/required_character_classes_number 2 &&
 php bin/magento config:set --dev/image/default_adapter IMAGEMAGICK &&
 php bin/magento config:set --general/country/allow BR &&

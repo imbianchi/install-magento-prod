@@ -30,10 +30,9 @@ export DBHOST
 export GITBRANCH
 
 bash ./nginx-config.sh
+bash ./git-config.sh
 bash ./create-project.sh
 bash ./store-config.sh
 
 ADMINURL=$(cat /var/www/html/$STORENAME/app/etc/env.php | grep admin | awk '{print $3}' | sed "s/'//g" | awk '{print "https://'$STORENAME'.bisws.com.br/"$0}')
 echo $ADMINURL
-
-bash ./git-config.sh
