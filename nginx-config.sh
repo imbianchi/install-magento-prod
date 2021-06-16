@@ -16,11 +16,11 @@ echo "server {
         listen 80;
         
         server_name $STORENAME.bisws.com.br;
-        set \$MAGE_ROOT /var/www/html/$STORENAME;
+        set $MAGE_ROOT /var/www/html/$STORENAME;
         
       #redirect to HTTPS behind ELB
-       if (\$http_x_forwarded_proto != 'https') {
-         return 301 https://\$host\$request_uri;
+       if (${'$http_x_forwarded_proto'} != 'https') {
+         return 301 https://${'$host$request_uri'};
       }
 
         access_log /var/log/nginx/$STORENAME-access.log;
