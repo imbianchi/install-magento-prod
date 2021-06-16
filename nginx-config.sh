@@ -3,6 +3,7 @@
 request_uri='$request_uri'
 host='$host'
 http_x_forwarded_proto='$http_x_forwarded_proto'
+MAGE_ROOT='$MAGE_ROOT'
 
 # create the respective directory
 cd /etc/nginx/conf.d/
