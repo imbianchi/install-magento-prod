@@ -7,7 +7,7 @@ Rode os seguintes comandos:
 
 - git clone git@github.com:bianchijoao/install-magento-prod.git /var/www/html/
 - cd /var/www/html/install-magento-prod/
-- bash install-store.sh
+- bash install.sh
 - systemctl restart nginx
 
 Pronto. Sua loja estará no domínio registrado.
