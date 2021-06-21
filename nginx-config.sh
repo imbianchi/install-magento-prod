@@ -65,9 +65,9 @@ if [[ $GITBRANCH = 'main' ]] || [[ $GITBRANCH = 'master' ]]
     then
         cd /etc/nginx/sites-enabled/
         touch ./$STORENAME.conf &&
-        echo productionConfig >> ./$STORENAME.conf
+        echo $productionConfig >> ./$STORENAME.conf
     else
         cd /etc/nginx/conf.d/
         touch ./$STORENAME &&
-        echo developConfig >> ./$STORENAME
+        echo $developConfig >> ./$STORENAME
 fi
