@@ -76,7 +76,6 @@ php bin/magento config:set web/secure/use_in_frontend 1 &&
 php bin/magento config:set web/secure/use_in_adminhtml 1
 
 php bin/magento config:set dev/static/sign 0
-php bin/magento setup:static-content:deploy -f
 php bin/magento cache:flush
 php bin/magento cache:clean
 php bin/magento mo:di Magento_TwoFactorAuth
@@ -85,7 +84,7 @@ php bin/magento setup:store-config:set --base-url="http://$STOREURL/"
 php bin/magento setup:store-config:set --base-url-secure="https://$STOREURL/"
 php bin/magento setup:upgrade
 php bin/magento setup:di:compile
-
+php bin/magento setup:static-content:deploy -f
 
 if [[ $GITBRANCH = 'main' ]] || [[ $GITBRANCH = 'master' ]]
 	then
