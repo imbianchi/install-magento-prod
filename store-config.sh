@@ -91,3 +91,4 @@ if [[ $GITBRANCH = 'main' ]] || [[ $GITBRANCH = 'master' ]]
 		php bin/magento deploy:mode:set production
 	else
 		php bin/magento deploy:mode:set developer
+fi
