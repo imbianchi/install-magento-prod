@@ -85,3 +85,10 @@ php bin/magento setup:store-config:set --base-url="http://$STOREURL/"
 php bin/magento setup:store-config:set --base-url-secure="https://$STOREURL/"
 php bin/magento setup:upgrade
 php bin/magento setup:di:compile
+
+
+if [[ $GITBRANCH = 'main' ]] || [[ $GITBRANCH = 'master' ]]
+	then
+		php bin/magento deploy:mode:set production
+	else
+		php bin/magento deploy:mode:set developer

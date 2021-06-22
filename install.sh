@@ -30,6 +30,8 @@ export DBPSWD
 export ADMINPSWD
 export DBHOST
 
+systemctl restart elasticsearch
+
 bash ./nginx-config.sh
 bash ./create-project.sh
 bash ./git-config.sh
@@ -39,6 +41,8 @@ cd /var/www/html/$STORENAME
 sudo -H -u www-data bash -c "composer install"
 
 bash /var/www/html/install-magento-prod/store-config.sh
+
+systemctl restart nginx
 
 ADMINURL=$(cat /var/www/html/$STORENAME/app/etc/env.php | grep admin | awk '{print $3}' | sed "s/'//g" | awk '{print "https://'$STORENAME'.bisws.com.br/"$0}')
 echo $ADMINURL
