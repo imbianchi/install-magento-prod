@@ -5,8 +5,6 @@ host='$host'
 http_x_forwarded_proto='$http_x_forwarded_proto'
 MAGE_ROOT='$MAGE_ROOT'
 
-echo "$GITBRANCH ----------------------------------"
-
 if [ "$GITBRANCH" == "main" ] || [ "$GITBRANCH" == "master" ]
     then
         cd /etc/nginx/sites-enabled/
