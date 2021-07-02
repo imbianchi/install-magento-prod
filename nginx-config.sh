@@ -5,7 +5,9 @@ host='$host'
 http_x_forwarded_proto='$http_x_forwarded_proto'
 MAGE_ROOT='$MAGE_ROOT'
 
-if [ "$GITBRANCH" == 'main' ] || [ "$GITBRANCH" == 'master' ]
+echo "$GITBRANCH ----------------------------------"
+
+if [ "$GITBRANCH" == "main" ] || [ "$GITBRANCH" == "master" ]
     then
         cd /etc/nginx/sites-enabled/
         touch ./$STORENAME &&
