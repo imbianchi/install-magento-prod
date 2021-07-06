@@ -4,6 +4,8 @@
 cd /var/www/html/$STORENAME
 echo "Running admin configs..."
 
+systemctl restart elasticsearch
+
 php bin/magento setup:install \
         --base-url=https://$STOREURL/ \
         --db-host=$DBHOST \
