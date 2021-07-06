@@ -3,6 +3,7 @@
 # Set information configs store
 cd /var/www/html/$STORENAME
 echo "Running admin configs..."
+
 php bin/magento setup:install \
         --base-url=https://$STOREURL/ \
         --db-host=$DBHOST \
@@ -73,7 +74,8 @@ php bin/magento config:set system/upload_configuration/jpeg_quality 90 &&
 php bin/magento config:set system/upload_configuration/max_height 1080 &&
 php bin/magento config:set web/seo/use_rewrites 1 &&
 php bin/magento config:set web/secure/use_in_frontend 1 &&
-php bin/magento config:set web/secure/use_in_adminhtml 1
+php bin/magento config:set web/secure/use_in_adminhtml 1 &&
+php bin/magento config:set catalog/search/elasticsearch7_index_prefix "$STORENAME"
 
 php bin/magento config:set dev/static/sign 0
 php bin/magento cache:flush
